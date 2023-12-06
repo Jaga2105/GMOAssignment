@@ -1,16 +1,11 @@
-import {useEffect} from "react"
+import { Box } from "@mui/material"
+import PostGrid from "./PostGrid"
+
 const Home = () => {
-    const fetchData = async()=>{
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts")
-        const data = await response.json()
-        console.log(data)
-    }
-    useEffect(() => {
-        fetchData()
-    }, [])
-    
   return (
-    <div>Home</div>
+    <Box sx={{display: 'flex', justifyContent: 'center'}}>
+        <PostGrid/>
+    </Box>
   )
 }
 
