@@ -58,7 +58,7 @@ const Register = () => {
 
   const validatePhone = (name: string, value: string): void => {
     let errorMsg: string = "";
-    let error: boolean = false;
+    let error: boolean=false ;
     if (value === "") {
       errorMsg = `${name} can't be empty`;
       error = true;
@@ -116,15 +116,18 @@ const Register = () => {
     e.preventDefault();
     const formFields = Object.keys(formValues);
     let errorArray: boolean[] = [];
+    let valueArray: string[]= []
     let userData: { [key: string]: string } = {};
 
     for (let i = 0; i < formFields.length; i++) {
       let key = formFields[i] as keyof FormValues;
       errorArray.push(formValues[key].error);
+      valueArray.push(formValues[key].value);
       userData[formFields[i]] = formValues[key].value;
     }
-
-    if (errorArray.includes(true)) {
+    if( valueArray.includes("")){
+      toast.error("Enter All credentials");
+    }else if (errorArray.includes(true)) {
       toast.error("Enter valid credentials");
     } else {
       const data = JSON.stringify(userData);
