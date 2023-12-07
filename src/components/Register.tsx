@@ -1,6 +1,7 @@
 import { Button, Container, TextField, Typography } from "@mui/material";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -124,11 +125,11 @@ const Register = () => {
     }
 
     if (errorArray.includes(true)) {
-      console.log("Enter All credentials");
+      toast.error("Enter valid credentials");
     } else {
       const data = JSON.stringify(userData);
       localStorage.setItem(userData["email"], data);
-      navigate("/home");
+      navigate("/home")
     }
   };
 
@@ -154,7 +155,6 @@ const Register = () => {
         <TextField
           type="number"
           name="phone"
-          //   pattern=".{10,10}"
           placeholder="Enter phone no."
           label="Phone"
           variant="outlined"

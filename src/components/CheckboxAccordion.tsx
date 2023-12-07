@@ -59,9 +59,9 @@ const Accordion: FC<AccordionProps> = ({ dept }) => {
   const handleSelectAllSubDept = () => {
     if (!selectAllSubDept) {
       let newArr: number[] = [];
-      dept.sub_departments.forEach((value, index) => {
-        newArr.push(index);
-      });
+    for(let i=0;i<dept.sub_departments.length;i++){
+        newArr.push(i);
+    }
       setSelectedSubDeptArr(newArr);
     } else {
       setSelectedSubDeptArr([]);

@@ -3,6 +3,7 @@ import PostGrid from "./PostGrid";
 import CheckboxAccordion from "./CheckboxAccordion";
 
 const Home = () => {
+    
   return (
     <Box>
       <Box
